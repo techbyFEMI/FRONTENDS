@@ -1332,6 +1332,8 @@
 </div>
 
 <script>
+
+  const API_URL='https://gard-iam0.onrender.com'
   let selectedFile = null;
 
   function handleFile(e) {
@@ -1391,7 +1393,7 @@
     formData.append('file', selectedFile);
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/analyzeDoc', {
+      const res = await fetch(`${API_URL}/analyzeDoc`, {
         method: 'POST',
         body: formData
       });
@@ -1582,7 +1584,7 @@
     list.innerHTML = '<div class="history-loading">Loading history...</div>';
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/history');
+      const res = await fetch(`${API_URL}/history`);
       const data = await res.json();
 
       if (!data || data.length === 0) {
@@ -1713,7 +1715,7 @@
     if (!pendingDeleteId) return;
     document.getElementById('deleteConfirm').classList.remove('active');
     try {
-      await fetch(`http://127.0.0.1:8000/history/${pendingDeleteId}`, { method: 'DELETE' });
+      await fetch(`${API_URL}/history/${pendingDeleteId}`, { method: 'DELETE' });
       const wrapper = document.getElementById(`wrapper-${pendingDeleteId}`);
       if (wrapper) {
         wrapper.style.transition = 'all 0.3s';
