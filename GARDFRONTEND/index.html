@@ -1624,7 +1624,7 @@
     list.innerHTML = '<div class="history-loading">Loading history...</div>';
 
     try {
-      const res = await fetch(`${URL_LINK}/histroy`);
+      const res = await fetch(`${URL_LINK}/history`);
       const data = await res.json();
 
       if (!data || data.length === 0) {
