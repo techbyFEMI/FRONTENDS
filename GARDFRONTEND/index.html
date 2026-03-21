@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1208,9 +1209,48 @@
     color: var(--muted);
     font-size: 13px;
   }
+
+  /* Wake up banner */
+  .wakeup-banner {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: white;
+    border-radius: var(--radius-pill);
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(30,58,138,0.3);
+    white-space: nowrap;
+    animation: fadeUp 0.4s ease forwards;
+  }
+
+  .wakeup-banner.active { display: flex; }
+
+  .wakeup-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
 </style>
+
 </head>
 <body>
+
+<!-- NAVBAR -->
 
 <nav class="navbar">
   <div class="nav-logo">
@@ -1223,81 +1263,87 @@
   <div class="nav-badge">Freelancer Protection</div>
 </nav>
 
+<!-- PAGE 1: UPLOAD -->
+
 <div class="page active" id="page-upload">
   <div class="upload-page">
 
-    <div class="greeting fade-up fade-up-1">
-      <div class="greeting-sub">Welcome to</div>
-      <div class="greeting-title">Spot risks before you<br><span>sign.</span></div>
-    </div>
+```
+<div class="greeting fade-up fade-up-1">
+  <div class="greeting-sub">Welcome to</div>
+  <div class="greeting-title">Spot risks before you<br><span>sign.</span></div>
+</div>
 
-    <div class="hero-card fade-up fade-up-2">
-      <div class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg> AI-Powered Analysis</div>
-      <div class="hero-title">Protect your freelance<br>contracts instantly</div>
-      <div class="hero-desc">Upload any contract and GARD detects risky clauses, payment traps, and unfair terms — in seconds.</div>
-    </div>
+<div class="hero-card fade-up fade-up-2">
+  <div class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg> AI-Powered Analysis</div>
+  <div class="hero-title">Protect your freelance<br>contracts instantly</div>
+  <div class="hero-desc">Upload any contract and GARD detects risky clauses, payment traps, and unfair terms — in seconds.</div>
+</div>
 
-    <div class="stats-row fade-up fade-up-3">
-      <div class="stat-card">
-        <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <span class="stat-value">6</span>
-        <div class="stat-label">Risk Types</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <span class="stat-value">3</span>
-        <div class="stat-label">Steps</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-        <span class="stat-value">100%</span>
-        <div class="stat-label">Free</div>
-      </div>
-    </div>
+<div class="stats-row fade-up fade-up-3">
+  <div class="stat-card">
+    <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+    <span class="stat-value">6</span>
+    <div class="stat-label">Risk Types</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+    <span class="stat-value">3</span>
+    <div class="stat-label">Steps</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <span class="stat-value">100%</span>
+    <div class="stat-label">Free</div>
+  </div>
+</div>
 
-    <div class="section-title fade-up fade-up-4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload Your Contract</div>
+<div class="section-title fade-up fade-up-4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload Your Contract</div>
 
-    <div class="error-card" id="errorCard"></div>
+<div class="error-card" id="errorCard"></div>
 
-    <div class="upload-card fade-up fade-up-4" id="uploadCard">
-      <input type="file" id="fileInput" accept=".pdf,.docx" onchange="handleFile(event)" />
-      <button class="cancel-file" id="cancelFile" onclick="cancelFile(event)">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-      <div class="upload-icon" id="uploadIcon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-      <div class="upload-title" id="uploadTitle">Drop your contract here</div>
-      <div class="upload-sub" id="uploadSub">Click to browse or drag and drop your file</div>
-      <div class="upload-su2">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        Files are 100% secure
-      </div>
-      <div class="file-name" id="fileName"></div>
-      <div class="upload-formats">
-        <span class="format-pill">PDF</span>
-        <span class="format-pill">DOCX</span>
-      </div>
-    </div>
+<div class="upload-card fade-up fade-up-4" id="uploadCard">
+  <input type="file" id="fileInput" accept=".pdf,.docx" onchange="handleFile(event)" />
+  <button class="cancel-file" id="cancelFile" onclick="cancelFile(event)">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <div class="upload-icon" id="uploadIcon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+  <div class="upload-title" id="uploadTitle">Drop your contract here</div>
+  <div class="upload-sub" id="uploadSub">Click to browse or drag and drop your file</div>
+  <div class="upload-su2">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+    Files are 100% secure
+  </div>
+  <div class="file-name" id="fileName"></div>
+  <div class="upload-formats">
+    <span class="format-pill">PDF</span>
+    <span class="format-pill">DOCX</span>
+  </div>
+</div>
 
-    <button class="btn-analyze fade-up fade-up-5" id="analyzeBtn" onclick="analyzeContract()" disabled>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Analyze Contract
-    </button>
+<button class="btn-analyze fade-up fade-up-5" id="analyzeBtn" onclick="analyzeContract()" disabled>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Analyze Contract
+</button>
 
-    <div class="detect-card fade-up fade-up-5" style="margin-top: 24px;">
-      <div class="section-title" style="margin-bottom: 0;">What GARD detects</div>
-      <div class="detect-grid">
-        <div class="detect-item"><div class="detect-dot" style="background: var(--red)"></div>Payment Terms</div>
-        <div class="detect-item"><div class="detect-dot" style="background: var(--amber)"></div>Non-Compete</div>
-        <div class="detect-item"><div class="detect-dot" style="background: var(--red)"></div>IP Ownership</div>
-        <div class="detect-item"><div class="detect-dot" style="background: var(--amber)"></div>Termination</div>
-        <div class="detect-item"><div class="detect-dot" style="background: var(--amber)"></div>Exclusivity</div>
-        <div class="detect-item"><div class="detect-dot" style="background: var(--red)"></div>Liability</div>
-      </div>
-    </div>
+<div class="detect-card fade-up fade-up-5" style="margin-top: 24px;">
+  <div class="section-title" style="margin-bottom: 0;">What GARD detects</div>
+  <div class="detect-grid">
+    <div class="detect-item"><div class="detect-dot" style="background: var(--red)"></div>Payment Terms</div>
+    <div class="detect-item"><div class="detect-dot" style="background: var(--amber)"></div>Non-Compete</div>
+    <div class="detect-item"><div class="detect-dot" style="background: var(--red)"></div>IP Ownership</div>
+    <div class="detect-item"><div class="detect-dot" style="background: var(--amber)"></div>Termination</div>
+    <div class="detect-item"><div class="detect-dot" style="background: var(--amber)"></div>Exclusivity</div>
+    <div class="detect-item"><div class="detect-dot" style="background: var(--red)"></div>Liability</div>
+  </div>
+</div>
+```
 
   </div>
 </div>
+
+<!-- PAGE 2: LOADING -->
 
 <div class="page" id="page-loading">
   <div class="loading-page">
@@ -1337,12 +1383,16 @@
   </div>
 </div>
 
+<!-- PAGE 3: RESULTS -->
+
 <div class="page" id="page-results">
   <div class="results-page">
     <div id="resultsContent"></div>
     <button class="btn-new" onclick="resetApp()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Analyze Another Contract</button>
   </div>
 </div>
+
+<!-- DELETE CONFIRM -->
 
 <div class="delete-confirm" id="deleteConfirm">
   <div class="delete-confirm-box">
@@ -1355,11 +1405,17 @@
   </div>
 </div>
 
+<!-- HISTORY TOGGLE BUTTON -->
+
 <button class="history-toggle" onclick="openHistory()">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> History
 </button>
 
+<!-- HISTORY OVERLAY -->
+
 <div class="history-overlay" id="historyOverlay" onclick="closeHistory()"></div>
+
+<!-- HISTORY PANEL -->
 
 <div class="history-panel" id="historyPanel">
   <div class="history-handle"></div>
@@ -1370,6 +1426,11 @@
   <div class="history-list" id="historyList">
     <div class="history-loading">Loading history...</div>
   </div>
+</div>
+
+<div class="wakeup-banner" id="wakeupBanner">
+  <div class="wakeup-dot"></div>
+  Waking up server — this takes ~30 seconds on free hosting
 </div>
 
 <script>
@@ -1442,6 +1503,10 @@
     showPage('page-loading');
     runLoadingSteps();
 
+    const wakeupTimer = setTimeout(() => {
+      document.getElementById('wakeupBanner').classList.add('active');
+    }, 5000);
+
     const formData = new FormData();
     formData.append('file', selectedFile);
 
@@ -1450,6 +1515,9 @@
         method: 'POST',
         body: formData
       });
+
+      clearTimeout(wakeupTimer);
+      document.getElementById('wakeupBanner').classList.remove('active');
 
       const data = await res.json();
 
@@ -1461,8 +1529,10 @@
       showPage('page-results');
 
     } catch (err) {
+      clearTimeout(wakeupTimer);
+      document.getElementById('wakeupBanner').classList.remove('active');
       showPage('page-upload');
-      showError('Error: ' + err.message + '. Make sure your API is running on https://gard-iam0.onrender.com');
+      showError('Error: ' + err.message + '. Make sure your API is running.');
     }
   }
 
@@ -1617,7 +1687,7 @@
       handleFile({ target: { files: [file] } });
     }
   });
- 
+  // History functions
   let pendingDeleteId = null;
   let activeSwipeItem = null;
 
@@ -1784,5 +1854,6 @@
     activeSwipeItem = null;
   }
 </script>
+
 </body>
 </html>
