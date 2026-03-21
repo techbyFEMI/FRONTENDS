@@ -1449,7 +1449,7 @@
 
     } catch (err) {
       showPage('page-upload');
-      showError('Error: ' + err.message + '. Make sure your API is running on http://127.0.0.1:8000');
+      showError('Error: ' + err.message + '. Make sure your API is running on https://gard-iam0.onrender.com');
     }
   }
 
@@ -1482,7 +1482,7 @@
     let html = `
       <div class="score-hero ${riskClass} fade-up fade-up-1">
         <div class="score-label">Overall Risk Score</div>
-        <div class="score-value">${score}</div>
+        <div class="score-value">${score}%</div>
         <div class="score-level">${level.charAt(0).toUpperCase() + level.slice(1)} Risk</div>
         <div class="score-summary">${risks.length} risk${risks.length !== 1 ? 's' : ''} detected in your contract</div>
       </div>
@@ -1662,7 +1662,7 @@
               </div>
               <div class="history-meta">
                 <div class="history-date">${item.created_at || ''}</div>
-                <div class="history-score">Score: ${item.overall_risk_score}</div>
+                <div class="history-score">Score: ${item.overall_risk_score}%</div>
               </div>
             </div>
           </div>
